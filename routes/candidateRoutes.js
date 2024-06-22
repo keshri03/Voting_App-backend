@@ -126,6 +126,7 @@ router.get('/vote/count', async (req, res) => {
 
     try {
         const candidates=await Candidate.find().sort({voteCount: 'desc'});
+        // map it to only show name, party and total count
         const voteRecord= candidates.map((data)=>{
             return {
                 name: data.name,
